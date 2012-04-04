@@ -58,13 +58,62 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\RootController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\cert_icon&amp;16.png" />
+    <Content Include="Assets\images\checkmark_icon&amp;16.png" />
+    <Content Include="Assets\images\cog_icon&amp;16.png" />
+    <Content Include="Assets\images\compass_icon&amp;16.png" />
+    <Content Include="Assets\images\delete_icon&amp;16.png" />
+    <Content Include="Assets\images\doc_edit_icon&amp;16.png" />
+    <Content Include="Assets\images\home_icon&amp;16.png" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\mail_icon&amp;16.png" />
+    <Content Include="Assets\images\node_icon&amp;16.png" />
+    <Content Include="Assets\images\on-off_icon&amp;16.png" />
+    <Content Include="Assets\images\paper_airplane_icon&amp;16.png" />
+    <Content Include="Assets\images\rss_icon_40.png" />
+    <Content Include="Assets\images\ruby_china_logo.png" />
+    <Content Include="Assets\images\search.png" />
+    <Content Include="Assets\images\spechbubble_2_icon&amp;16.png" />
+    <Content Include="Assets\images\star_fav_empty_icon&amp;16.png" />
+    <Content Include="Assets\images\star_fav_icon&amp;16.png" />
+    <Content Include="Assets\images\tagL.png" />
+    <Content Include="Assets\images\tag_icon&amp;16.png" />
+    <Content Include="Assets\images\trash_icon&amp;16.png" />
+    <Content Include="Assets\images\twitter_2_icon&amp;16.png" />
+    <Content Include="Assets\images\upyun_logo.png" />
+    <Content Include="Assets\images\users_icon&amp;16.png" />
+    <Content Include="Assets\images\user_icon&amp;16.png" />
+    <Content Include="Assets\images\user_icon&amp;48_bak.png" />
+    <Content Include="Assets\images\wp_logo.png" />
+    <Content Include="Assets\images\wrench_icon&amp;16.png" />
+    <Content Include="Assets\libs\ajax-upload\ajaxupload.js" />
+    <Content Include="Assets\libs\jquery\jquery.js" />
+    <Content Include="Assets\stylesheets\style.css" />
+    <Content Include="Assets\libs\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Assets\libs\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Assets\libs\bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\libs\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Assets\libs\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Assets\libs\bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\libs\pagedown\demo\browser\demo.css" />
+    <Content Include="Assets\libs\pagedown\demo\browser\demo.html" />
+    <Content Include="Assets\libs\pagedown\demo\node\demo.js" />
+    <Content Include="Assets\libs\pagedown\LICENSE.txt" />
+    <Content Include="Assets\libs\pagedown\Markdown.Converter.js" />
+    <Content Include="Assets\libs\pagedown\Markdown.Editor.js" />
+    <Content Include="Assets\libs\pagedown\Markdown.Sanitizer.js" />
+    <Content Include="Assets\libs\pagedown\README.txt" />
+    <Content Include="Assets\libs\pagedown\wmd-buttons.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -77,10 +126,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Images\" />
-    <Folder Include="Assets\Javascripts\" />
-    <Folder Include="Assets\Stylesheets\" />
+    <Folder Include="Assets\javascripts\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Topic\Create.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

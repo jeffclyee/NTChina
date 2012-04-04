@@ -47,13 +47,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NTChina.Data\NTChina.Data.csproj">
-      <Project>{AC7A7E24-25FD-4DA3-8E6A-E1D9A412C5BC}</Project>
-      <Name>NTChina.Data</Name>
+    <ProjectReference Include="..\NTChina.Data.Sqlserver\NTChina.Data.Sqlserver.csproj">
+      <Project>{01F60235-74E0-4154-8BDD-D59D6EAFD2C4}</Project>
+      <Name>NTChina.Data.Sqlserver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NTChina.Entity\NTChina.Entity.csproj">
-      <Project>{8B48C131-90C1-4AD7-9E3D-BB7936A2988E}</Project>
-      <Name>NTChina.Entity</Name>
+    <ProjectReference Include="..\NTChina.Domain\NTChina.Domain.csproj">
+      <Project>{CB27C6CD-2C85-4381-A0D0-4955B55AF7AC}</Project>
+      <Name>NTChina.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

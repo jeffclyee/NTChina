@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NTChina.Data.Infrastructure;
-using NTChina.Data.Interfaces;
-using NTChina.Data.Repositories;
-using NTChina.Entity;
+using NTChina.Data.Sqlserver.Infrastructure;
+using NTChina.Domain;
+using NTChina.Domain.Repositories;
 using NTChina.Service.Interfaces;
 
 namespace NTChina.Service

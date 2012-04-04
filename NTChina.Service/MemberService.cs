@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NTChina.Data.Interfaces;
+using NTChina.Domain.Repositories;
 
 namespace NTChina.Service
 {

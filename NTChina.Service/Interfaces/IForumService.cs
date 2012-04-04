@@ -1,4 +1,4 @@
-﻿using NTChina.Entity;
+﻿using NTChina.Domain;
 
 namespace NTChina.Service.Interfaces
 {

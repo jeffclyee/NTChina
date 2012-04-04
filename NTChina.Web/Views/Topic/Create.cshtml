@@ -1,0 +1,155 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = " › 创建主题";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="wrapper">
+    <div id="main">
+        <div id="sidebar">
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">话题发布步骤</span>
+                </div>
+                <div class="inner">
+                    <ol>
+                        <li>填写标题</li>
+                        <li>填写内容</li>
+                        <li>选择话题标签</li>
+                        <li>确认后发布话题</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sep10">
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">话题发布指南</span>
+                </div>
+                <div class="inner">
+                    <ul>
+                        <li>尽量把话题要点浓缩到标题里</li>
+                        <li>内容对标题做进一步说明，但不是必须的</li>
+                        <li>给话题选择合适的标签能增加被阅读的机会</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sep10">
+            </div>
+            <div class="panel">
+                <div class="header">
+                    <span class="col_fade">markdown语法参考</span>
+                </div>
+                <div class="inner">
+                    <ul>
+                        <li>换行：两个空格</li>
+                        <li>分段：一个空行</li>
+                        <li>斜体：*斜体*</li>
+                        <li>粗体：**粗体**</li>
+                        <li>代码：行首四个空格</li>
+                        <li>链接：[文字](url)</li>
+                        <li>图片：![alt 文字](url)</li>
+                    </ul>
+                    <span>详见 <a target="_blank" href="http://www.ituring.com.cn/article/775">Markdown Wiki</a></span>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="panel">
+                <div class="header">
+                    <ul class="breadcrumb">
+                        <li><a href="/">主页</a><span class="divider">/</span></li>
+                        <li class="active">发布话题</li>
+                    </ul>
+                </div>
+                <div class="inner">
+                    <form method="post" action="/topic/create" id="create_topic_form">
+                    <div>
+                        <label for="title" class="bold">
+                            标题</label>
+                        <div>
+                            <textarea rows="3" name="title" id="title" class="span8"></textarea>
+                            <p class="help-block">字数控制在10到100个之间</p>
+                        </div>
+                    </div>
+                    <div class="sep10">
+                    </div>
+                    <div class="sep10">
+                    </div>
+                    <div>
+                        <label for="t_content" class="bold">
+                            内容和标签</label>
+                        <div class="tabbable">
+                            <ul class="nav nav-pills">
+                                <li class="active"><a data-toggle="pill" href="#markdown">markdown</a></li>
+                                <li><a data-toggle="pill" href="#preview">预览</a></li>
+                                <li><a data-toggle="pill" href="#tags">标签</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="markdown">
+								<div id="wmd-button-bar"></div>
+								    <div class="input">
+									    <textarea class="span8" id="wmd-input" name="t_content" rows="20"></textarea>
+								    </div>
+							    </div>
+                                <div class="tab-pane" id="preview">
+                                    <div class="wmd-preview topic-wmd-preview" id="wmd-preview">
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tags">
+                                    <div class="tags_select">
+                                        <span tag_id="4efc3e39e49a048d71000169" class="tag_selectable">业界消息 </span><span
+                                            tag_id="4f178970d48ce1f82c00236f" class="tag_selectable">社区活动 </span><span tag_id="4f17899ed48ce1f82c0023f6"
+                                                class="tag_selectable">NAE交流 </span><span tag_id="4f178985d48ce1f82c0023ae" class="tag_selectable">
+                                                    原创文章 </span><span tag_id="4f17898dd48ce1f82c0023e9" class="tag_selectable">转载文章
+                                        </span><span tag_id="4f17897cd48ce1f82c0023aa" class="tag_selectable">入门教程 </span>
+                                        <span tag_id="4f178995d48ce1f82c0023ef" class="tag_selectable">技术讨论 </span><span
+                                            tag_id="4f1789a6d48ce1f82c002438" class="tag_selectable">东拉西扯 </span><span tag_id="4f4e0eace1e0be951c017957"
+                                                class="tag_selectable">NodeClub </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn" id="submit_btn">
+                            发布</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ajaxupload -->
+        <script src="/assets/libs/ajax-upload/ajaxupload.js" type="text/javascript"></script>
+        <!-- markdown editor -->
+        <script src="/assets/libs/pagedown/Markdown.Converter.js" type="text/javascript"></script>
+        <script src="/assets/libs/pagedown/Markdown.Sanitizer.js" type="text/javascript"></script>
+        <script src="/assets/libs/pagedown/Markdown.Editor.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function run_md_editor() {
+                    var converter = Markdown.getSanitizingConverter();
+                    var editor = new Markdown.Editor(converter);
+                    editor.run();
+                }
+                run_md_editor();
+
+                $(".tag_selectable").click(function () {
+                    $(this).toggleClass("tag_select");
+                });
+
+                $("#submit_btn").click(function () {
+                    var values = [];
+                    $(".tag_selectable").each(function () {
+                        if ($(this).hasClass("tag_select")) {
+                            values.push($(this).attr("tag_id"));
+                        }
+                    });
+                    $("#topic_tags").val(values);
+                    $("#create_topic_form").submit();
+                });
+            });
+        </script>
+    </div>
+    <div class="cl cr">
+    </div>
+</div>
